@@ -10,11 +10,13 @@ pub fn preprocess() -> CmdResult {
     ).collect::<Vec<Vec<&str>>>();
     collector.remove(0);
     println!("{:?}", collector);
-
+    for ve in &collector {
+        get_yaml(ve);
+    }
     Ok(())
 }
 
-pub fn get_yaml(t: Vec<&str>) -> CmdResult {
+pub fn get_yaml(t: &Vec<&str>) -> CmdResult {
     cmd_lib::set_debug(true); // to print commands
     cmd_lib::set_pipefail(false);
     let namespace = t[0];
