@@ -43,7 +43,7 @@ pub fn save(dirname: &str , data: &str, filename: &str, space: &str) -> CmdResul
     last_name.push_str("+");
     last_name.push_str(filename);
     last_name.push_str(".yaml");
-    run_cmd!( cd $dirname && echo $data > $last_name && cd ..)?;
+    run_cmd!( echo $data > $dirname/$last_name)?;
     Ok(())
 }
 
@@ -54,6 +54,11 @@ mod test {
 
     #[test]
     fn test() -> CmdResult {
-        preprocess()
+        run_cmd!( mkdir tet)?;
+        std::fs::
+        run_cmd!(cd tet)?;
+
+        run_cmd!( echo 123 > 1.txt)?;
+        Ok(())
     }
 }
