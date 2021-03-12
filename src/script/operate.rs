@@ -39,13 +39,12 @@ pub fn save(dirname: &str , data: &str, filename: &str, space: &str) -> CmdResul
     cmd_lib::set_pipefail(false);
     run_cmd!( mkdir $dirname )?;
     let mut last_name = String::new();
-    last_name.push_str("./");
-    last_name.push_str(dirname);
-    last_name.push_str("+");
     last_name.push_str(space);
     last_name.push_str("+");
     last_name.push_str(filename);
+    run_cmd!( cd $dirname)?;
     run_cmd!( echo $data > $last_name)?;
+    run_cmd(cd ..)?;
     Ok(())
 }
 
