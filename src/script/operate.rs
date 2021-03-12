@@ -44,7 +44,7 @@ pub fn save(dirname: &str , data: &str, filename: &str, space: &str) -> CmdResul
     last_name.push_str(filename);
     run_cmd!( cd $dirname)?;
     run_cmd!( echo $data > $last_name)?;
-    run_cmd(cd ..)?;
+    run_cmd!(cd ..)?;
     Ok(())
 }
 
