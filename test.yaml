@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"extensions/v1beta1","kind":"Ingress","metadata":{"annotations":{},"name":"cyk-entrytask-ingress","namespace":"yaokang"},"spec":{"rules":[{"host":"cyk-entertask.test-stable.shopeepaylater.ph","http":{"paths":[{"backend":{"serviceName":"cyk-entrytask","servicePort":8156},"path":"/"}]}}]},"status":{"loadBalancer":{}}}
+  creationTimestamp: "2020-12-17T12:13:02Z"
+  generation: 3
+  name: cyk-entrytask-ingress
+  namespace: yaokang
+  resourceVersion: "138733607"
+  selfLink: /apis/extensions/v1beta1/namespaces/yaokang/ingresses/cyk-entrytask-ingress
+  uid: 13d671d3-f611-4fe0-ba9c-c0145aa52bb1
+spec:
+  rules:
+    - host: cyk-entertask.test-stable.shopeepaylater.ph
+      http:
+        paths:
+          - backend:
+              serviceName: cyk-entrytask
+              servicePort: 8156
+            path: /
+    - host: cyk-entertask.test-stable.shopeepaylater.ph
+      http:
+        paths:
+          - backend:
+              serviceName: cyk-entrytask
+              servicePort: 8156
+            path: /api
+status:
+  loadBalancer: {}
