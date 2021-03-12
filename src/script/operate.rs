@@ -42,6 +42,7 @@ pub fn save(dirname: &str , data: &str, filename: &str, space: &str) -> CmdResul
     last_name.push_str(space);
     last_name.push_str("+");
     last_name.push_str(filename);
+    last_name.push_str(".yaml");
     run_cmd!( cd $dirname)?;
     run_cmd!( echo $data > $last_name)?;
     run_cmd!(cd ..)?;
