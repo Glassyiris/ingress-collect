@@ -1,5 +1,6 @@
 use cmd_lib::*;
 use std::intrinsics::rustc_peek;
+use core::num::dec2flt::parse::ParseResult::ShortcutToInf;
 
 pub fn preprocess() -> CmdResult {
     cmd_lib::set_debug(true); // to print commands
@@ -37,7 +38,13 @@ pub fn save(dirname: &str , data: &str, filename: &str, space: &str) -> CmdResul
     cmd_lib::set_debug(true); // to print commands
     cmd_lib::set_pipefail(false);
     run_cmd!( mkdir $dirname )?;
-    let last_name = dirname + "/" + filename + "+" + space + ".yaml";
+    let mut last_name = String::new();
+    last_name.push_str("./");
+    last_name.push_str(dirname);
+    last_name.push_str("+");
+    last_name.push_str(space);
+    last_name.push_str("+");
+    last_name.push_str(filename);
     run_cmd!( echo $data > $last_name)?;
     Ok(())
 }
