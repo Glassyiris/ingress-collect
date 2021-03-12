@@ -1,6 +1,4 @@
 use cmd_lib::*;
-use std::intrinsics::rustc_peek;
-use core::num::dec2flt::parse::ParseResult::ShortcutToInf;
 
 pub fn preprocess() -> CmdResult {
     cmd_lib::set_debug(true); // to print commands
